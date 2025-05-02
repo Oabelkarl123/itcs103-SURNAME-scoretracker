@@ -136,7 +136,7 @@ def delete_entry():
 root = tk.Tk()
 root.title("Student Score Tracker")
 root.geometry("750x600")
-root.configure(bg="lavender")  # #f0e6ff
+root.configure(bg="lavender")
 
 style = ttk.Style(root)
 style.theme_use("clam")
@@ -148,7 +148,7 @@ style.configure("Treeview", font=("Segoe UI", 10), rowheight=25)
 style.configure("Treeview.Heading", font=("Segoe UI", 10, "bold"))
 
 # === Header Bar ===
-header = tk.Frame(root, bg="mediumorchid", height=60)  # #7209b7
+header = tk.Frame(root, bg="mediumorchid", height=60) 
 header.pack(fill="x")
 tk.Label(header, text="Student Score Tracker", bg="mediumorchid", fg="white",
          font=("Segoe UI", 16, "bold")).pack(pady=10)
