@@ -1,0 +1,47 @@
+import tkinter as tk
+from tkinter import ttk, messagebox
+from tkinter import *
+from tkinter import messagebox
+
+from openpyxl import Workbook, load_workbook
+import os
+
+EXCEL_FILE = "grades.xlsx"
+
+if not os.path.exists(EXCEL_FILE):
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Scores"
+    ws.append(["Name", "Course", "Grade",])
+    wb.save(EXCEL_FILE)
+
+def on_select(event):
+    global selected_item_id
+    selected = listbox.selection()
+    if not selected:
+        return
+
+
+
+
+window = tk.Tk()
+window.geometry("300x300")
+window.title("Grades")
+
+tree_frame = tk.Frame(window, bg="lavender")
+tree_frame.pack(pady=20, padx=20, fill='both', expand=True)
+
+columns = ("Name", "Course", "Grade")
+listbox = ttk.Treeview(tree_frame, columns=columns, show="headings")
+for col in columns:
+    listbox.heading(col, text=col)
+    listbox.column(col, width=150, anchor="center")
+
+
+
+
+
+
+listbox.pack(fill="both", expand=True)
+listbox.bind("<<TreeviewSelect>>", on_select)
+window.mainloop()
